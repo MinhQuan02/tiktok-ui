@@ -26,6 +26,8 @@ import styles from './Header.module.scss';
 import { Wrapper as PopperWrapper } from '~/Components/Popper';
 import AccountItem from '~/Components/AccountItem';
 import Tippy from '@tippyjs/react';
+import { UploadIcon } from '~/Components/Icons';
+import Image from '~/Components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -123,7 +125,7 @@ function Header() {
                         <>
                             <Tippy delay={(0, 200)} content="Upload video">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -136,10 +138,11 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/340884521_1198924170814520_5575707358682414546_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=BONBqXuBFtoAX-FLG5_&_nc_ht=scontent.fsgn5-12.fna&oh=00_AfBzsFIpNSRhi17SLjqvj1CebzFQj5DlPLnTr2cxBksJ_g&oe=646D4261"
                                 alt=""
+                                fallback="https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/335078710_591210682932418_9155400489003463845_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Wt-k26qaqycAX8Y10tm&_nc_ht=scontent.fsgn5-9.fna&oh=00_AfCuGNL5UFYm0TugIKzyl_6mFOGuo3e3hdfNMCTiO9KR4g&oe=646E4296"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
