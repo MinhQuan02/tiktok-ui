@@ -26,8 +26,13 @@
     }
 }
 
+.menu-body {
+    overflow-y: auto;
+}
+
 // Header menu
 .header {
+    flex-shrink: 0;
     position: relative;
     height: 50px;
 }
