@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 
-import * as serachServices from '~/apiService/searchService';
+import * as serachServices from '~/Service/searchService';
 import { Wrapper as PopperWrapper } from '~/Components/Popper';
 import AccountItem from '~/Components/AccountItem';
 import styles from './Search.module.scss';
 import { SearchIcon } from '~/Components/Icons';
-import { Debouned } from '~/Components/Hooks';
+import { Debounced } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
@@ -20,7 +20,7 @@ function Search() {
     const [showResult, setShowResult] = useState(true);
     const [loading, setloading] = useState(false);
 
-    const debouned = Debouned(searchValue, 500);
+    const debouned = Debounced(searchValue, 500);
 
     useEffect(() => {
         if (!debouned.trim()) {
